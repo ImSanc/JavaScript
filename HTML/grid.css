@@ -1,0 +1,29 @@
+.grid-container{
+    border: solid 2px black;
+    display: grid;
+}
+.col1{
+    margin: 1px 1px ;
+    
+    background-color: pink;
+}
+.col2{
+    margin: 1px 1px ;
+    
+    background-color: green;
+}
+.col3{
+    margin: 1px 1px ;
+    
+    background-color: grey;
+}
+.col4{
+    margin: 1px 1px ;
+    
+    background-color: blue;
+}
+.col5{
+    margin: 1px 1px ;
+    
+    background-color: red;
+}

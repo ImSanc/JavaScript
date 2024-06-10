@@ -1,0 +1,15 @@
+.container{
+ 
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        background-color: pink;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .container {
+        background-color: lightgreen;
+    }
+}

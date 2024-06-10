@@ -1,0 +1,55 @@
+.table{
+    border: 15px solid grey ;
+    border-radius: 20px;
+    height: 150px;
+    width: 300px;
+    background-color: green;
+    background-blend-mode: lighten;
+}
+
+.cardset{
+    border: 2px solid white ;
+    border-radius: 5px;
+    height: 50px;
+    width: 40px;
+    background-color:red;
+    margin-left: 100px;
+    margin-top: 5px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+
+.cardset.click{
+   
+}
+
+.card1
+{
+    border: 2px solid red ;
+    border-radius: 5px;
+    height: 50px;
+    width: 40px;
+    background-color:white;
+    margin-left: 50px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.card2
+{
+    border: 2px solid red ;
+    border-radius: 5px;
+    height: 50px;
+    width: 40px;
+    background-color:white;
+    margin-left: 150px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}

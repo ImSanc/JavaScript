@@ -1,0 +1,12 @@
+.cricket{
+    list-style-type:unset;
+    list-style-image: url(images\luffy.jpg);
+}
+
+.football{
+    list-style-type: circle;
+}
+
+.basketball{
+    list-style-type: lower-greek;
+}
