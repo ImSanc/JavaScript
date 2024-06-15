@@ -32,6 +32,21 @@ app.get("/files", async (request,response)=>{
   }
 })
 
+app.get("/files/:filename", async (request,response)=>{
+
+  try{
+    const fileName = request.params.filename;
+    const filepath = path.join(directoryPath, fileName);
+    const fileContent = await fs.readFile(filepath,"utf-8")
+    response.status(200).json( {content : fileContent });
+  }
+  catch(err)
+  {
+    response.status(404).json( {error : `File not found` });
+  }
+})
+
+
 async function getFiles()
 {
   try{
@@ -55,4 +70,7 @@ async function getFiles()
 }
 
 
+app.use((req, res) => {
+  res.status(404).send('Route not found');
+});
 
