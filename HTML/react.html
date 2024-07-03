@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id = "buttonParent">
+    </div>
+
+    <script>
+        const state = {
+            count :0 
+        }
+
+        function onButtonClick ()
+        {
+            state.count++;
+            updateCounter();
+        }
+
+        function updateCounter()
+        {
+            document.getElementById("buttonParent").innerHTML = "";
+            const button = document.createElement("button");
+            button.innerHTML =  `Counter ${state.count}`;
+            button.setAttribute("onclick",`onButtonClick()`);
+            document.getElementById("buttonParent").appendChild(button);
+        }
+        updateCounter();    
+    </script>
+</body>
+</html>
