@@ -4,15 +4,34 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
+ 
   return (
-    <div>
+    <>
+     <HeaderWithButton></HeaderWithButton>
      <Header title = "Sanchit" ></Header>
-     <Header title = "Sanchit" ></Header>
-     </div>
+     </>
   )
 }
+
+function HeaderWithButton() {
+  const [title, setTitle] = useState("Sanchit")
+
+  function changeHeader() {
+    const random = Math.random();
+    setTitle(random);
+  }
+
+  return (
+    <>
+    <button onClick= { changeHeader} >Click on me to change the title </button>
+     <Header title = {title} ></Header>
+    </>
+  )
+}
+
+
 
 function Header(props)
 {
