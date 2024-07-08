@@ -29,5 +29,4 @@ function Todo( {title , description,completed})
   </div>
 }
 
-
 export default App
