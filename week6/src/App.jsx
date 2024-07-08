@@ -1,54 +1,27 @@
-import React,{ useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
-let idCounter = 4;
 function App() {
- const [todos,setTodos] = useState([
-  { 
-    id : 1,
-  title : "sanchit",
-  description : "Sanchit needs to work"
-  },
-  {
-    id : 2,
-    title : "DevSan",
-    description : "Sanchit needs to dev"
-  }, {
-    id : 3,
-    title : "chillSan",
-    description : "Sanchit needs to chill"
-  }
-
-]);
-
-function addTodo ()
-{
-  setTodos([...todos,{
-    id : idCounter++,
-    title : "new todo ",
-    description : "Added new Todo"
-  }])
-}
-
-return (
-  <div>
-    <button onClick={addTodo}>Add Todo</button>
-    { todos.map( (todo)=>(<Todo title={todo.title} description ={todo.description} > </Todo>)) }
+  return(
+    <div>
+  <CardWrapper innerComponent = {<TextComponent/>}> </CardWrapper>
+  <CardWrapper innerComponent = {<TextComponent/>}> </CardWrapper>
   </div>
-);
-
-
+  )
 }
 
-function Todo ({title,description}) {
-  return ( <div>
-    <h1>
-      {title}
-    </h1>
-    <h5>{description}</h5>
-  </div>)
+function TextComponent()
+{
+  return <div>
+    hi there
+  </div>
+}
+
+function CardWrapper({innerComponent})
+{
+  return <div style={ {border : "2px solid black", padding : "10px" , margin : "10px"}}>  
+    {innerComponent}
+  </div>
 }
 
 export default App
