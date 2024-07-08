@@ -1,27 +1,33 @@
 
+import { useEffect, useState } from 'react';
 import './App.css'
+ function  App() {
+  const [todo, setTodos] = useState([]);
 
-function App() {
-  return(
-    <div>
-  <CardWrapper innerComponent = {<TextComponent/>}> </CardWrapper>
-  <CardWrapper innerComponent = {<TextComponent/>}> </CardWrapper>
-  </div>
-  )
+  useEffect( () => {
+    
+   const intervalId = setInterval( () =>{ fetch("https://sum-server.100xdevs.com/todos")
+   .then( async (response) => {
+     const todoList = await response.json();
+
+     setTodos(todoList.todos);
+   });
+},2000)
+},[]);
+
+return <div>
+{ todo.map( (todo)=>( <Todo key={todo.id} title={todo.title} description={todo.description} completed={todo.completed}></Todo>)) } 
+</div>
 }
 
-function TextComponent()
+function Todo( {title , description,completed})
 {
   return <div>
-    hi there
+    <h1>{title}</h1>
+    <h4>{description}</h4>
+    <h4>{completed}</h4>
   </div>
 }
 
-function CardWrapper({innerComponent})
-{
-  return <div style={ {border : "2px solid black", padding : "10px" , margin : "10px"}}>  
-    {innerComponent}
-  </div>
-}
 
 export default App
