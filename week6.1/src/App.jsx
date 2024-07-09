@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios';
 
 function App() {
 
@@ -10,11 +11,11 @@ function App() {
 
   useEffect( () => {
     if(id){
-    fetch("https://sum-server.100xdevs.com/todos?id=" + id)
-    .then( async (response)=>{
-       const newTodo = await response.json();
-       setTodo(newTodo.todos);
-    })
+      axios.get("https://sum-server.100xdevs.com/todos?id=" + id)
+      .then(async (response)=>{
+        const newTodo = response.data.todos;
+        setTodo(newTodo);
+     }) 
   }
   },[id]);
 
