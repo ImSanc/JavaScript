@@ -7,13 +7,13 @@ import axios from 'axios';
 function App() {
 
   const [id,setId] = useState('');
-  const [todos , setTodo] = useState([]);
+  const [todos , setTodo] = useState({});
 
   useEffect( () => {
     if(id){
-      axios.get("https://sum-server.100xdevs.com/todos?id=" + id)
+      axios.get("https://sum-server.100xdevs.com/todo?id=" + id)
       .then(async (response)=>{
-        const newTodo = response.data.todos;
+        const newTodo = response.data.todo;
         setTodo(newTodo);
      }) 
   }
@@ -24,7 +24,7 @@ function App() {
                 const value = e.target.value;
                 setId(e.target.value);
             }}/>
-        {    todos.map( (todo)=>( <Todo title={todo.title} description={todo.description}></Todo>  )) }
+    <Todo title={todos.title} description={todos.description}></Todo>
   </div>
 }
 
