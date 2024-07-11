@@ -1,45 +1,33 @@
-import { useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios'
+
+function useTodos(){
+  const [todo , setTodo] = useState(null);
+
+  useEffect( ()=>{
+    axios.get(`https://sum-server.100xdevs.com/todo?id=1`)
+    .then( (response)=>{
+      const fetchedTodo = response.data.todo;
+
+      setTodo(fetchedTodo);
+    })
+  },[])
+
+  return todo;
+}
 
 function App() {
-  const [count,setCount] = useState(0);
-  const [num ,setNum] = useState(0);
-  console.log(num);
-  function onNumberChange(e)
-  {
-    setNum(e.target.value);
-  }
-
-  function onClickOfCounter()
-  {
-    setCount(count+1);
-  }
-
-  function Sumdisplay( {num} )
-  {
-    let total = 0;
-    while(num>0)
-      {
-        total+=num;
-        --num;
-      }
-    return <div> <p>Sum is {total}</p>
-    </div>
-  }
-
-  function CounterButton( {count} )
-  {
-    return <div>
-    <button onClick={onClickOfCounter}>Counter {count}</button>
-    </div>
-  }
+  const todo = useTodos();
+  if(todo== null )
+    {
+      return<div>Loading</div>
+    }
 
   return <div>
-    <input type="text" placeholder='0' onChange={onNumberChange}></input>
-    <Sumdisplay num = {parseInt( num)}></Sumdisplay>
-    <CounterButton count ={count}></CounterButton>
+    { JSON.stringify (todo)}
   </div>
 }
 
