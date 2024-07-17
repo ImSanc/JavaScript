@@ -1,20 +1,16 @@
 
 import './App.css'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Dashboard } from './components/Dashboard'
-import { Landing } from './components/Landing'
+import React from 'react';
+import {BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom'
+const Landing  =  React.lazy( ()=> import('./components/Landing')  )
+const Dashboard = React.lazy( ()=> import('./components/Dashboard') );
 
 function App() {
     return (
         <div>
-            <button onClick={ ()=>{
-                window.location.href = "/";
-            }}>Back</button>
-
-            <button onClick={()=>{
-                window.location.href = "/dashboard";
-            }}>forward</button>
+            
         <BrowserRouter>
+            <AppBar/>
             <Routes>
                 <Route  path = '/dashboard' element={<Dashboard/>} ></Route>
                 <Route path='/' element={<Landing/>}></Route>
@@ -22,6 +18,20 @@ function App() {
         </BrowserRouter>
         </div>
     )
+}
+
+function AppBar() {
+    const navigate = useNavigate();
+    return <div>
+        <button onClick={ ()=>{
+               navigate("/")
+            }}>Back</button>
+
+            <button onClick={()=>{
+                navigate("/dashboard")
+            }}>forward</button>
+            
+    </div>
 }
 
 export default App
