@@ -4,16 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count , setCount]= useState(0);
-
-
+  
   return <div>
-    <Count count= {count} setCount={setCount}></Count>
-    
+    <Count></Count> 
   </div>
 }
 
-function Count( {count,setCount} ) {
+function Count( ) {
+  const [count , setCount]= useState(0);
+
   return <div>
     {count}
     <Button setCount={setCount} count={count}></Button>
@@ -22,11 +21,11 @@ function Count( {count,setCount} ) {
 
 function Button( {count,setCount}){
   return <div>
-
+    <br/> <br></br>
   <button onClick={ ()=> {
     setCount(count+1)
   }}>Increment</button>
-
+<br/> <br></br>
   <button onClick={ ()=>{
     setCount(count-1)
   }}>Decrement</button>
