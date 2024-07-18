@@ -2,23 +2,28 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { CountContext } from './context';
+import { useContext } from 'react';
 
 function App() {
- return <div>
-  <Count></Count>
- </div>
+  const [count,setCount] = useState(0);
+  return <div>
+    <CountContext.Provider value={ {count,setCount}}>
+    <Count ></Count>
+    </CountContext.Provider>
+    </div>
 }
 
 function Count( ) {
-  const [count,setCount] = useState(0);
   return <div>
-    <CountRenderer count= {count} ></CountRenderer>
-    <Button setCount={setCount} count={count}> </Button>
+    <CountRenderer ></CountRenderer>
+    <Button> </Button>
   </div>
 }
 
-function Button( {count , setCount})
+function Button()
 {
+  const {count,setCount} = useContext(CountContext)
   return <div>
     <button onClick={ ()=>{ 
        setCount(count+1)
@@ -30,7 +35,9 @@ function Button( {count , setCount})
   </div>
 }
 
-function CountRenderer({count}) {
+function CountRenderer() {
+
+  const {count} = useContext(CountContext)
   return <div>
     {count}
   </div>
