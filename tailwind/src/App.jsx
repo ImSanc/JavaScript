@@ -4,11 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  return <div style={ { display : "flex", justifyContent :'space-between'}}>
-    <div style={ { background: "green"}}> div 1 </div>
-    <div style={ { background: "red"}}> div 2</div>
-    <div style={ { background: "yellow"}}> div 3</div>
+  return <> 
+  <div className='grid grid-cols-1 md:grid-cols-3' >
+    <div className='bg-green-500    '> div 1 </div>
+    <div className='bg-red-500  '> div 2</div>
+    <div className='bg-yellow-500  '> div 3</div>
   </div>
+  </>
+  return 
 }
 
 export default App
