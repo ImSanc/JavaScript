@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blue: {
+          700: '#1874c4',
+          800: '#0e4f82' // Override the default bg-blue-700 color
+        },
+      },
+    },
   },
   plugins: [],
 }
