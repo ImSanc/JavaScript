@@ -1,6 +1,6 @@
 export const Header = ({ headerName }) => {
     return (
-        <div className="flex justify-between items-center p-3">
+        <div className="flex justify-between items-center p-3 border-b-2 bg-white">
             <div className="flex items-center">
                 <div className="font-semibold">{headerName}</div>
                 <div className="text-sm flex items-center ml-2 cursor-pointer">
@@ -14,7 +14,7 @@ export const Header = ({ headerName }) => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="gray" className="h-6 w-6 mr-1">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
-                <input className="bg-gray-200 focus:outline-none" type="text" placeholder="Search features, tutorials, etc." />
+                <input className=" flex bg-gray-200 focus:outline-none p-3 pr-60 w-full mr-4" type="text" placeholder="Search features, tutorials, etc." />
             </div>
             <div className="flex items-center space-x-2">
                 <div className="p-2 bg-gray-200 rounded-full">
