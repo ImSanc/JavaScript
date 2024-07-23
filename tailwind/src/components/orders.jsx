@@ -34,8 +34,8 @@ export const Orders = ({orders =[]})=>{
             </tr>
         </thead>
         <tbody>
-            {orders.map((order) => (
-                <tr className="border-b-2 text-xs">
+            {orders.map((order) => ( 
+                <tr key={order.Id} className="border-b-2 text-xs">
                     <td className="pl-6 p-4 text-center">
                         <div className="flex text-blue-700 font-semibold">
                             <div>#</div>

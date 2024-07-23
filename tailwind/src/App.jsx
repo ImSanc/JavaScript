@@ -8,6 +8,7 @@ import { OverView } from './components/overview'
 import { Transactions } from './components/transactions'
 import { Payouts } from './components/payout'
 import { Orders } from './components/orders'
+import { SideBar } from './components/sidebar'
 
 function App() {
 
@@ -36,7 +37,11 @@ function App() {
     orderAmount : '1,125.00'
    }]
 
-  return <div className ='bg-gray-50' > 
+  return <div className ='bg-gray-50 flex w-full h-screen' >
+    <div className="w-64">
+      <SideBar/>
+    </div>
+  <div className="flex-grow">
   <Header headerName= {'Payouts'}></Header>
   <OverView></OverView>
   <div className='grid grid-cols-1 ml-6  md:grid-cols-3 sm:grid-cols-2'>
@@ -48,6 +53,7 @@ function App() {
   <Payouts payouts={22} refunds={6}></Payouts>
   <Orders orders={orders}></Orders>
   </div>
+  </div> 
 
 }
 
