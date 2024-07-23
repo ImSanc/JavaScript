@@ -10,6 +10,32 @@ import { Payouts } from './components/payout'
 import { Orders } from './components/orders'
 
 function App() {
+
+  const orders = [{ Id : 281209,
+    status : 'Successful',
+    transactionId : 131634495747,
+    refundDate : 'Today, 08:45 PM',
+    orderAmount : '1,125.00'
+   },
+   { Id : 281208,
+    status : 'Processing',
+    transactionId : 131634495747,
+    refundDate : 'Yesterday, 8:45 PM',
+    orderAmount : '1,125.00'
+   },
+   { Id : 281207,
+    status : 'Failed',
+    transactionId : 131634495747,
+    refundDate : '12 Jul 2023, 3:00 PM',
+    orderAmount : '1,125.00'
+   },
+   { Id : 281206,
+    status : 'Successful',
+    transactionId : 131634495747,
+    refundDate : '12 Jul 2023, 3:00 PM',
+    orderAmount : '1,125.00'
+   }]
+
   return <div className ='bg-gray-50' > 
   <Header headerName= {'Payouts'}></Header>
   <OverView></OverView>
@@ -20,7 +46,7 @@ function App() {
   </div>
   <Transactions/>
   <Payouts payouts={22} refunds={6}></Payouts>
-  <Orders></Orders>
+  <Orders orders={orders}></Orders>
   </div>
 
 }

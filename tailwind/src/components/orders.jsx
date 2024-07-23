@@ -1,5 +1,5 @@
-export const Orders = ({orders})=>{
-    return <div className="bg-white m-6">
+export const Orders = ({orders =[]})=>{
+    return <div className="bg-white m-6 ">
         <div className="flex justify-between">
             <div className="flex justify-strech border-solid border-2 rounded m-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="gray" className="h-6 w-6 mr-1 inline text-center">
@@ -22,5 +22,55 @@ export const Orders = ({orders})=>{
                 </div>
             </div>
         </div>
+        <div className="flex justify-between">
+    <table className="table-auto w-full border-collapse">
+        <thead>
+            <tr>
+                <th className="text-sm font-semibold p-2">ORDER ID</th>
+                <th className="text-sm font-semibold p-2">STATUS</th>
+                <th className="text-sm font-semibold p-2">TRANSACTION ID</th>
+                <th className="text-sm font-semibold p-2">REFUND DATE</th>
+                <th className="text-sm font-semibold p-2">ORDER AMOUNT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {orders.map((order) => (
+                <tr className="border-b-2 text-xs">
+                    <td className="pl-6 p-4 text-center">
+                        <div className="flex text-blue-700 font-semibold">
+                            <div>#</div>
+                            <div>{order.Id}</div>
+                        </div>
+                    </td>
+                    <td className="pl-6 p-4 text-center text-xs">
+                        <div className="flex items-center">
+                            {order.status === 'Successful' && (
+                                <div className="bg-green-500 rounded-full h-2 w-2 mr-2"></div>
+                            )}
+                            {order.status === 'Processing' && (
+                                <div className="bg-gray-300 rounded-full h-2 w-2 mr-2"></div>
+                            )}
+                            {order.status === 'Failed' && (
+                                <div className="bg-red-500 rounded-full h-2 w-2 mr-2"></div>
+                            )}
+                            {order.status}
+                        </div>
+                    </td>
+                    <td className="pl-6 p-4 text-center text-xs ">{order.transactionId}</td>
+                    <td className="pl-6 p-4 text-center text-xs">{order.refundDate}</td>
+                    <td className="pl-6 p-4 text-center flex items-center justify-center text-xs">
+                        <div className="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        {order.orderAmount}
+                    </td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</div>
+
     </div>
 }
