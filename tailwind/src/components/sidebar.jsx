@@ -8,7 +8,7 @@ export const SideBar = () => {
                             <img src="/mnt/data/image.png" className="rounded-md" alt="Profile" />
                         </div>
                         <div>
-                            <div className="text-sm text-white font-semibold">Shivam</div>
+                            <div className="text-sm text-white font-semibold">Sanchit</div>
                             <div className="underline text-sm text-white">Visit store</div>
                         </div>
                         <div className="underline text-sm text-white">
