@@ -8,7 +8,7 @@ export default {
     extend: {
       colors :{
         seaGreen : {
-          DEFAULT : '#20b2aa'
+          DEFAULT : '#9FE2BF'
         }
       }
     },

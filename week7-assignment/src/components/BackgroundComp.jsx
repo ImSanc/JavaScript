@@ -19,7 +19,7 @@ export function BackgroundComp(){
                 <Button color={"orange"} changeBackGround={changeBackGround}/>
                 <Button color={"blue"} changeBackGround={changeBackGround}/>
                 <Button color={"purple"} changeBackGround={changeBackGround}/>
-                <Button color={"white"} changeBackGround={changeBackGround}/>
+                <Button color={"default"} changeBackGround={changeBackGround}/>
         
             </div>
         </div>
