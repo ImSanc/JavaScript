@@ -12,7 +12,7 @@ export function DashBoard(){
             <div className="bg-seaGreen rounded-lg flex justify-center items-center font-semibold p-3 w-[70%] h-[70%] mt-3">
                 <PageLink pageName={'Profile'} link={"/profile"}/>
                 <PageLink pageName={'BackGround'} link={"/background"}/>
-                <Link>ewfer</Link>
+                <PageLink pageName={'Paragraph generator'} link={"/paragraphGenerator"}/>
                 <Link></Link>
                 <Link></Link>
                 <Link></Link>

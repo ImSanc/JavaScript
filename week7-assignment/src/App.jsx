@@ -3,6 +3,7 @@ import './App.css'
 import { Profile } from './pages/Profile'
 import { BackGround } from './pages/Background'
 import { DashBoard } from './pages/Dash'
+import { ParagraphGen } from './pages/ParagraphGen'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path='/dashboard' element={<DashBoard/>} />
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/background" element={<BackGround/>}/>
+        <Route path="/paragraphGenerator" element={<ParagraphGen/>}/>
         <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
     </BrowserRouter>
