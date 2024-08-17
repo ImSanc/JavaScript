@@ -13,6 +13,7 @@ export function DashBoard(){
                 <PageLink pageName={'Profile'} link={"/profile"}/>
                 <PageLink pageName={'BackGround'} link={"/background"}/>
                 <PageLink pageName={'Paragraph generator'} link={"/paragraphGenerator"}/>
+                <PageLink pageName={'GitHub'} link={"/githubCard"}/>
                 <Link></Link>
                 <Link></Link>
                 <Link></Link>
