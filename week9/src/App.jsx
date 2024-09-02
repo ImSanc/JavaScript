@@ -6,7 +6,7 @@ import { UseTodos } from './hooks/hooks';
 
 function App() {
 
-  const {todos,loading} = UseTodos();
+  const {todos,loading} = UseTodos(5);
 
   if(loading){
     return <div>
