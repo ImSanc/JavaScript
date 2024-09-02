@@ -1,31 +1,31 @@
 
 import { useEffect, useState } from 'react'
 import './App.css'
-import { MyComponent } from './components/ClassBasedComp'
-import { FunctionalComp } from './components/FunctionalComp'
-import { FunctionalEffect } from './components/FunctionalEffect'
-import { ClassBasedEffect } from './components/ClassBasedEffect'
+import axios from 'axios';
+import { UseTodos } from './hooks/hooks';
 
 function App() {
 
-  const [showComp,setShowComp] = useState(true);
+  const {todos,loading} = UseTodos();
 
-  useEffect( ()=>{
-    const timer = setTimeout( ()=>{
-      setShowComp(!showComp);
-    },5000);
+  if(loading){
+    return <div>
+      Loading
+    </div>
+  }
 
-    return () => {
-      clearTimeout(timer);
-    }
-  
-  },[])
- 
   return (
     <>
-      { showComp && <ClassBasedEffect />}
+      {todos.map( todo=> <Track todo={todo}/>)}
     </>
   )
+}
+
+function Track({todo}){
+  return <div>
+    <div>{todo.title}</div>
+    <div>{todo.description}</div>
+  </div>
 }
 
 export default App
