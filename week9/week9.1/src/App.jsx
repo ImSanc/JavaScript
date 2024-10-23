@@ -1,57 +1,33 @@
 
-import React, { useEffect, useState } from 'react'
-import './App.css'
+import React, { Suspense, useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
 
-  const [render ,setRender] = useState(true);
-
-  useEffect(()=>{
+  const [todos , setTodo] = useState([]);
+  useEffect( ()=>{
+    getTodos();
     const interval = setInterval( ()=>{
-      setRender((prevRender)=>(!prevRender));
+      getTodos();
     },2000);
 
-    return ()=>{
+    return () => {
       clearInterval(interval);
     }
-  },[]);
-  
-  //{render && <MyComponent/>}
-  return <>
-     
-    {render && <MyComponent1/>}
-  </>
-}
 
-function MyComponent(){
-
-  useEffect( ()=>{
-    console.log("Component mounted");
-    return ()=>{
-      console.error("Component unmounted")
-    }
   },[])
 
-  return <div>
-    Component
-  </div>
-}  
-
-class MyComponent1 extends React.Component {
-
-  componentDidMount(){
-    console.log("Component mounted");
+  const getTodos = async () => {
+    const result  = await axios.get("http://localhost:8080/get-todos");
+    const newTodos = result.data.todos;
+    setTodo(newTodos);
   }
 
-  componentWillUnmount(){
-    console.error("Component unmounted");
-  }
-
-  render() {
-    return <div>
-      hi there
-    </div>
-  }
+  return <>
+    <Suspense fallback={<div>Loading Todos...</div>}>
+      {todos.map( todo =>( <div>{todo.title}</div>))}
+    </Suspense>
+  </>
 }
 
 export default App
