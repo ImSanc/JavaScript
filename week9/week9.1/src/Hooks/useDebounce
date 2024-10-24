@@ -1,0 +1,18 @@
+import { useEffect, useState } from "react";
+
+export function useDebounce(input,timer){
+
+    const [ result , setResult ] = useState(input);
+
+    useEffect( ()=>{
+        const timeOut =  setTimeout( ()=>{
+            setResult(input);
+        },timer);
+
+        return ()=>{
+            clearTimeout(timeOut);
+        }
+    },[input,timer]);
+
+    return result;
+}

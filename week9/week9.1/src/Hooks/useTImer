@@ -1,0 +1,19 @@
+import { useState } from "react";
+
+export function useTimer(){
+    const [counter , setCounter] = useState(0);
+
+    useState(()=>{
+
+        const interval = setInterval( ()=>{
+            setCounter( (counter)=>( counter+1));
+            
+        },1000);
+
+        return ()=>{
+            clearInterval(interval);
+        }
+    });
+
+    return counter;
+}
