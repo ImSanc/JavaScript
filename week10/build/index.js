@@ -21,4 +21,19 @@ function insertUser(username, password, firstName, lastName) {
         console.log(result);
     });
 }
-insertUser("ImSanc", "sanchit@17", "sanchit", "mishra");
+function updateUser(username_1, _a) {
+    return __awaiter(this, arguments, void 0, function* (username, { firstName, lastName }) {
+        const result = yield User.update({ data: { firstName,
+                lastName },
+            where: {
+                username
+            },
+            select: {
+                firstName: true,
+                lastName: true
+            } });
+        console.log(result);
+    });
+}
+updateUser('ImSanc', { firstName: 'tsshe', lastName: 'Flash' });
+//insertUser("ImSanc", "sanchit@17","sanchit" , "mishra");

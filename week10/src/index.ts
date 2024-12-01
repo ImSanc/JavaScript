@@ -12,4 +12,27 @@ async function insertUser(username: string , password : string, firstName : stri
     console.log(result);
 }
 
-insertUser("ImSanc", "sanchit@17","sanchit" , "mishra");
+interface UpdateParams {
+    firstName : string,
+    lastName : string
+}
+
+async function updateUser(username : string , {firstName , lastName} : UpdateParams)  {
+    
+    const result = await User.update(
+            { data : { firstName
+                ,lastName },
+            where :{
+                username
+            },
+            select: {
+                firstName : true,
+                lastName : true
+            }});
+
+}
+
+
+
+updateUser('ImSanc',{ firstName: 'tsshe', lastName : 'Flash'})
+//insertUser("ImSanc", "sanchit@17","sanchit" , "mishra");
